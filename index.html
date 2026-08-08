@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#FAF7F2" />
+<title>Week by Week Parenting™ · by Aasthaxp</title>
+<meta name="description" content="Helping ordinary parents raise extraordinary humans—one week at a time. Weekly parenting mission cards, a book, and printable nursery cards for the first years." />
+
+<!-- ============================================================
+     Google Fonts — Poppins (headings) + Inter (body)
+     Only external dependency in the project.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%238FAF9A'/><circle cx='50' cy='42' r='16' fill='%23FAF7F2'/><path d='M22 84c0-16 12-26 28-26s28 10 28 26z' fill='%23FAF7F2'/></svg>" />
+</head>
+
+<body>
+
+<!-- Skip link for keyboard + screen-reader users -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     SITE HEADER / NAVIGATION
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="Week by Week Parenting home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34" role="presentation">
+          <rect width="40" height="40" rx="12" fill="var(--sage)"/>
+          <circle cx="20" cy="16" r="6" fill="#fff" opacity=".95"/>
+          <path d="M8 33c0-6.6 5.4-11 12-11s12 4.4 12 11z" fill="#fff" opacity=".95"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Week&nbsp;by&nbsp;Week Parenting<sup>™</sup></span>
+        <span class="brand-by">by Aasthaxp</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#weeks">Weeks</a></li>
+        <li><a href="#companion">Companion</a></li>
+        <li><a href="#stories">Stories</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-primary btn-sm header-cta" href="#weeks">Explore Week&nbsp;1</a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+    <ul>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#weeks">Week Navigator</a></li>
+      <li><a href="#hang">Hang in the Room</a></li>
+      <li><a href="#companion">Website Companion</a></li>
+      <li><a href="#stories">Parent Stories</a></li>
+      <li><a class="btn btn-primary btn-block" href="#weeks">Explore Week&nbsp;1</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <!-- ============================================================
+       1 · HERO
+       ============================================================ -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <!-- Decorative CSS/SVG illustration layer -->
+    <div class="hero-blobs" aria-hidden="true">
+      <span class="blob blob-sage"></span>
+      <span class="blob blob-blue"></span>
+      <span class="blob blob-terra"></span>
+    </div>
+
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">🌿 A gentle system for the first 5 years</p>
+        <h1 id="heroTitle" class="reveal">
+          Week by Week<br /><span class="grad">Parenting<sup>™</sup></span>
+        </h1>
+        <p class="lede reveal">
+          Helping ordinary parents raise extraordinary humans—<em>one week at a time.</em>
+        </p>
+        <p class="hero-sub reveal">
+          One card. One week. Five minutes a day. No guilt, no overwhelm — just small,
+          science-backed missions that quietly add up to a remarkable childhood.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#weeks" data-week-jump="1">
+            Explore Week 1
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#weeks">View All Weeks</a>
+        </div>
+
+        <ul class="hero-stats reveal" aria-label="At a glance">
+          <li><strong>260</strong><span>weekly missions</span></li>
+          <li><strong>7</strong><span>growth pillars</span></li>
+          <li><strong>5 min</strong><span>minimum a day</span></li>
+        </ul>
+      </div>
+
+      <!-- Illustration-style card stack, built from pure CSS + inline SVG -->
+      <div class="hero-art reveal" aria-hidden="true">
+        <div class="art-card art-card--back">
+          <span class="art-pill"></span><span class="art-line"></span><span class="art-line short"></span>
+        </div>
+        <div class="art-card art-card--mid">
+          <span class="art-pill alt"></span><span class="art-line"></span><span class="art-line short"></span>
+        </div>
+        <div class="art-card art-card--front">
+          <div class="art-head">
+            <span class="art-badge">Week 14</span>
+            <span class="art-emoji">👶</span>
+          </div>
+          <p class="art-title">Discovering Faces,<br />Voices &amp; Movement</p>
+          <ul class="art-checks">
+            <li><span class="tick"></span>Face-to-face “talking” — 2 min</li>
+            <li><span class="tick"></span>Tummy time with a mirror</li>
+            <li><span class="tick"></span>Sing the same song, same time</li>
+          </ul>
+          <div class="art-foot">
+            <span class="dot sage"></span><span class="dot blue"></span><span class="dot terra"></span>
+            <span class="art-foot-text">Stage 1 · Birth–6 Months</span>
+          </div>
+        </div>
+        <div class="art-float art-float--1">🍼</div>
+        <div class="art-float art-float--2">🌙</div>
+        <div class="art-float art-float--3">📖</div>
+      </div>
+    </div>
+
+    <!-- Soft wave divider -->
+    <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,60 C240,0 480,90 720,60 C960,30 1200,0 1440,45 L1440,90 L0,90 Z" fill="var(--white)"/>
+    </svg>
+  </section>
+
+  <!-- ============================================================
+       2 · PHILOSOPHY — the 7 pillars
+       ============================================================ -->
+  <section class="section section--white" id="philosophy" aria-labelledby="philTitle">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Our philosophy</p>
+        <h2 id="philTitle">Seven pillars. One whole human.</h2>
+        <p class="section-sub">
+          Every weekly mission touches at least one pillar. Over a year, they balance out —
+          so your child grows wide, not just tall.
+        </p>
+      </header>
+
+      <ul class="pillar-grid" role="list">
+        <li class="pillar-card reveal" style="--i:0">
+          <span class="pillar-icon" style="--tint:var(--terracotta-soft)" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 20s-7-4.4-7-9.3A4 4 0 0 1 12 8a4 4 0 0 1 7 2.7C19 15.6 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Love &amp; Emotional Security</h3>
+          <p>The base layer. Responsive warmth builds a brain that feels safe enough to explore.</p>
+        </li>
+        <li class="pillar-card reveal" style="--i:1">
+          <span class="pillar-icon" style="--tint:var(--sage-soft)" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 13h3l2-5 3 9 2.5-6L17 13h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Health &amp; Fitness</h3>
+          <p>Sleep, food, movement. Small daily rhythms that protect the body for decades.</p>
+        </li>
+        <li class="pillar-card reveal" style="--i:2">
+          <span class="pillar-icon" style="--tint:var(--blue-soft)" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-1 5.8A3 3 0 0 0 8 18a3 3 0 0 0 4 1.7V4.6A3 3 0 0 0 9 4Zm6 0a3 3 0 0 1 3 3 3 3 0 0 1 1 5.8A3 3 0 0 1 16 18a3 3 0 0 1-4 1.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Intelligence &amp; Curiosity</h3>
+          <p>Not flashcards — questions. We protect the instinct to wonder, poke and try again.</p>
+        </li>
+        <li class="pillar-card reveal" style="--i:3">
+          <span class="pillar-icon" style="--tint:var(--terracotta-soft)" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3 5 6v5.5c0 4.3 2.9 8.2 7 9.5 4.1-1.3 7-5.2 7-9.5V6l-7-3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9.2 12 2 2 3.6-3.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Character &amp; Values</h3>
+          <p>Honesty, kindness, effort. Modelled in ordinary moments long before they’re taught.</p>
+        </li>
+        <li class="pillar-card reveal" style="--i:4">
+          <span class="pillar-icon" style="--tint:var(--blue-soft)" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M20 12a7 7 0 0 1-7 7H8l-4 3 1.2-3.6A7 7 0 0 1 11 5h2a7 7 0 0 1 7 7Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Confidence &amp; Communication</h3>
+          <p>A child who is listened to becomes a child who speaks up. We practise both sides.</p>
+        </li>
+        <li class="pillar-card reveal" style="--i:5">
+          <span class="pillar-icon" style="--tint:var(--sage-soft)" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3v7m0 0 3-3m-3 3L9 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 13v5a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Independence &amp; Life Skills</h3>
+          <p>“Help me do it myself.” Age-right autonomy, from holding a spoon to holding a plan.</p>
+        </li>
+        <li class="pillar-card reveal pillar-card--wide" style="--i:6">
+          <span class="pillar-icon" style="--tint:var(--terracotta-soft)" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="8" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="10.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 19c0-2.8 2.2-4.6 5-4.6s5 1.8 5 4.6M14 19c0-2.2 1.6-3.6 3.6-3.6S21 16.8 21 19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Family Culture &amp; Relationships</h3>
+          <p>The invisible curriculum — rituals, repair after conflict, and the stories you retell.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3 · PRODUCTS
+       ============================================================ -->
+  <section class="section" id="products" aria-labelledby="prodTitle">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">The system</p>
+        <h2 id="prodTitle">One idea, four beautiful forms.</h2>
+        <p class="section-sub">Read it, hang it, tap it, carry it. Use whichever fits the week you’re having.</p>
+      </header>
+
+      <div class="product-grid">
+        <article class="product-card reveal" style="--i:0">
+          <div class="product-visual product-visual--book" aria-hidden="true">
+            <div class="mini-book"><span></span><span></span></div>
+          </div>
+          <div class="product-body">
+            <p class="kicker">01 · The Book</p>
+            <h3>The Week by Week Book</h3>
+            <p>A calm, beautifully typeset guide covering every week from birth onward — the “why” behind each mission, in plain language.</p>
+            <ul class="tick-list">
+              <li>260 weekly chapters</li>
+              <li>Science notes without the jargon</li>
+              <li>Space to write on the page</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="product-card reveal product-card--featured" style="--i:1">
+          <span class="ribbon">Most loved</span>
+          <div class="product-visual product-visual--cards" aria-hidden="true">
+            <div class="mini-card c1"></div><div class="mini-card c2"></div><div class="mini-card c3"></div>
+          </div>
+          <div class="product-body">
+            <p class="kicker">02 · The Box</p>
+            <h3>Mission Cards</h3>
+            <p>Thick, hangable cards — one per week. Pull this week’s card, clip it near the crib, tick it off together.</p>
+            <ul class="tick-list">
+              <li>Minimum · Better · Best levels</li>
+              <li>Mom, Dad &amp; Family missions</li>
+              <li>Free / Budget / Premium options</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="product-card reveal" style="--i:2">
+          <div class="product-visual product-visual--web" aria-hidden="true">
+            <div class="mini-browser"><span class="bar"></span><span class="blk"></span><span class="blk short"></span></div>
+          </div>
+          <div class="product-body">
+            <p class="kicker">03 · The Website</p>
+            <h3>Companion Site</h3>
+            <p>Every card, always with you. Scan the QR on any physical card to open its digital twin, printables and deeper notes.</p>
+            <ul class="tick-list">
+              <li>Printable PDFs</li>
+              <li>Free lifetime updates</li>
+              <li>Works on any phone</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="product-card reveal product-card--soon" style="--i:3">
+          <span class="ribbon ribbon--muted">Coming 2027</span>
+          <div class="product-visual product-visual--app" aria-hidden="true">
+            <div class="mini-phone"><span class="notch"></span><span class="blk"></span><span class="blk short"></span></div>
+          </div>
+          <div class="product-body">
+            <p class="kicker">04 · The App</p>
+            <h3>Week by Week App</h3>
+            <p>Gentle weekly nudges, a shared checklist for both parents, and a private growth journal that quietly builds itself.</p>
+            <ul class="tick-list">
+              <li>Two-parent sync</li>
+              <li>Photo &amp; milestone memory book</li>
+              <li>Zero-noise reminders</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4 · WEEK NAVIGATOR  +  5 · DETAILED WEEK CARD
+       ============================================================ -->
+  <section class="section section--white" id="weeks" aria-labelledby="weeksTitle">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Stage 1 · Birth–6 Months</p>
+        <h2 id="weeksTitle">Pick your week.</h2>
+        <p class="section-sub">Twenty-six weeks of tiny, doable missions — every single one open right now.</p>
+      </header>
+
+      <!-- ===== Limited-period unlock banner =====
+           Remove this block (and set UNLOCK_ALL = false in script.js)
+           when the weeks are locked back down. -->
+      <div class="unlock-banner reveal" id="unlockBanner">
+        <span class="unlock-pill">🔓 Limited period</span>
+        <p><strong>All 26 weeks are unlocked.</strong> Every card is complete — checklists, missions,
+          budgets, red flags, Science Corner and a printable mission card. Explore the whole of Stage 1 while it lasts.</p>
+      </div>
+
+      <!-- Horizontal scrollable week selector -->
+      <div class="week-nav reveal">
+        <button class="week-scroll week-scroll--prev" type="button" aria-label="Scroll weeks left" data-scroll="-1">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M12.5 4 7 10l5.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="week-track" id="weekTrack" role="tablist" aria-label="Select a week">
+          <!-- Week chips injected by script.js -->
+        </div>
+
+        <button class="week-scroll week-scroll--next" type="button" aria-label="Scroll weeks right" data-scroll="1">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M7.5 4 13 10l-5.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <!-- ===== The week panel. Week 14 ships as static markup; other
+             weeks are rendered into this container by script.js. ===== -->
+      <div id="weekPanel" class="week-panel" role="tabpanel" aria-labelledby="chip-14" tabindex="-1">
+
+        <article class="week-card" id="week14" data-week="14">
+
+          <!-- ---------- Header ---------- -->
+          <header class="wc-header">
+            <div class="wc-header-top">
+              <span class="stage-badge">Stage 1 · Birth–6 Months</span>
+              <span class="week-number" aria-hidden="true">14</span>
+            </div>
+            <p class="wc-week-label">Week 14</p>
+            <h3 class="wc-title">“Discovering Faces, Voices &amp; Movement”</h3>
+            <p class="wc-intro">
+              Your baby’s world is sharpening. Faces are now the most interesting thing in the
+              room, your voice is the favourite sound, and those arms are starting to obey.
+              This week we lean into all three.
+            </p>
+            <div class="wc-meta">
+              <span class="meta-pill">👀 Visual tracking</span>
+              <span class="meta-pill">🗣️ Turn-taking</span>
+              <span class="meta-pill">💪 Neck &amp; core</span>
+            </div>
+          </header>
+
+          <div class="wc-body">
+
+            <!-- ---------- Goals ---------- -->
+            <section class="wc-block" aria-labelledby="w14-goals">
+              <h4 class="block-title" id="w14-goals"><span class="block-emoji" aria-hidden="true">🎯</span> This Week’s Goals</h4>
+              <ul class="goal-grid" role="list">
+                <li class="goal" style="--goal:var(--terracotta)"><span class="goal-tag">Emotional</span><p>Baby settles faster when they see or hear you — security through predictability.</p></li>
+                <li class="goal" style="--goal:var(--sage-deep)"><span class="goal-tag">Physical</span><p>Holds head steady for 30+ seconds in tummy time; swipes at a dangling object.</p></li>
+                <li class="goal" style="--goal:var(--blue-deep)"><span class="goal-tag">Brain</span><p>Tracks a slow-moving face or toy smoothly from one side to the other.</p></li>
+                <li class="goal" style="--goal:var(--terracotta-deep)"><span class="goal-tag">Language</span><p>Coos back in “conversation” — waits, then answers with a sound.</p></li>
+                <li class="goal" style="--goal:var(--sage-deep)"><span class="goal-tag">Social</span><p>Smiles at a familiar face on purpose, not just reflexively.</p></li>
+              </ul>
+            </section>
+
+            <!-- ---------- Effort levels ---------- -->
+            <section class="wc-block" aria-labelledby="w14-levels">
+              <h4 class="block-title" id="w14-levels"><span class="block-emoji" aria-hidden="true">⏱️</span> Choose your week</h4>
+              <p class="block-sub">Some weeks you have thirty minutes. Some weeks you have five. Both count.</p>
+
+              <div class="levels">
+                <div class="level level--min">
+                  <header><span class="level-badge">Minimum</span><span class="level-time">5 min/day</span></header>
+                  <ul class="checklist" role="list">
+                    <li><label><input type="checkbox" data-persist="w14-min-1" /><span class="cbx" aria-hidden="true"></span><span>Hold baby 30&nbsp;cm from your face and slowly say their name 3 times.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-min-2" /><span class="cbx" aria-hidden="true"></span><span>One minute of tummy time on your chest.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-min-3" /><span class="cbx" aria-hidden="true"></span><span>Pause after every coo — count to three before replying.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-min-4" /><span class="cbx" aria-hidden="true"></span><span>Sing the same short song at the same daily moment.</span></label></li>
+                  </ul>
+                </div>
+
+                <div class="level level--better">
+                  <header><span class="level-badge">Better</span><span class="level-time">15 min/day</span></header>
+                  <ul class="checklist" role="list">
+                    <li><label><input type="checkbox" data-persist="w14-bet-1" /><span class="cbx" aria-hidden="true"></span><span>Everything in Minimum.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-bet-2" /><span class="cbx" aria-hidden="true"></span><span>Slow face-tracking: move your face left→right, 6 passes.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-bet-3" /><span class="cbx" aria-hidden="true"></span><span>Tummy time with an unbreakable mirror, 3–5 minutes.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-bet-4" /><span class="cbx" aria-hidden="true"></span><span>Narrate one routine out loud — “Now we pour the water…”</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-bet-5" /><span class="cbx" aria-hidden="true"></span><span>Offer a light rattle to swipe at, held just within reach.</span></label></li>
+                  </ul>
+                </div>
+
+                <div class="level level--best">
+                  <header><span class="level-badge">Best</span><span class="level-time">30+ min/day</span></header>
+                  <ul class="checklist" role="list">
+                    <li><label><input type="checkbox" data-persist="w14-bst-1" /><span class="cbx" aria-hidden="true"></span><span>Everything in Better, split across the day.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-bst-2" /><span class="cbx" aria-hidden="true"></span><span>10-minute “face gym”: peekaboo, tongue-out imitation, exaggerated expressions.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-bst-3" /><span class="cbx" aria-hidden="true"></span><span>Baby-wearing walk with live commentary on what you both see.</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-bst-4" /><span class="cbx" aria-hidden="true"></span><span>Record a 30-second video of your “conversation” for the memory page.</span></label></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- ---------- Role missions ---------- -->
+            <section class="wc-block" aria-labelledby="w14-missions">
+              <h4 class="block-title" id="w14-missions"><span class="block-emoji" aria-hidden="true">💌</span> This Week’s Missions</h4>
+              <div class="mission-grid">
+                <div class="mission mission--mom">
+                  <span class="mission-icon" aria-hidden="true">🌸</span>
+                  <h5>Mom Mission</h5>
+                  <p>Ten uninterrupted minutes of face-to-face time, phone in another room. Then ten minutes that are only yours — tea, shower, sleep. Your calm is part of the curriculum.</p>
+                </div>
+                <div class="mission mission--dad">
+                  <span class="mission-icon" aria-hidden="true">🧭</span>
+                  <h5>Dad Mission</h5>
+                  <p>Own one full routine end-to-end this week — bath, change, settle — without being asked or corrected. Different hands, different voice, same safety.</p>
+                </div>
+                <div class="mission mission--family">
+                  <span class="mission-icon" aria-hidden="true">🏡</span>
+                  <h5>Family Mission</h5>
+                  <p>Create one 3-minute evening ritual everyone joins: lights low, one song, one sentence each about the day. Start it this week; keep it for years.</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- ---------- Budget options ---------- -->
+            <section class="wc-block" aria-labelledby="w14-budget">
+              <h4 class="block-title" id="w14-budget"><span class="block-emoji" aria-hidden="true">🪙</span> Budget Options</h4>
+              <div class="budget-grid">
+                <div class="budget budget--free">
+                  <p class="budget-tier">Free</p>
+                  <p class="budget-price">₹0</p>
+                  <ul role="list">
+                    <li>Your own face — the best toy there is</li>
+                    <li>A steel plate as a mirror</li>
+                    <li>A dupatta for peekaboo</li>
+                  </ul>
+                </div>
+                <div class="budget budget--mid">
+                  <p class="budget-tier">Budget</p>
+                  <p class="budget-price">₹200–₹600</p>
+                  <ul role="list">
+                    <li>High-contrast black-and-white cards</li>
+                    <li>Soft wrist rattle</li>
+                    <li>Cotton tummy-time mat</li>
+                  </ul>
+                </div>
+                <div class="budget budget--premium">
+                  <p class="budget-tier">Premium</p>
+                  <p class="budget-price">₹1,500+</p>
+                  <ul role="list">
+                    <li>Shatterproof floor mirror</li>
+                    <li>Wooden play gym with hangers</li>
+                    <li>Ergonomic carrier for narrated walks</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="budget-note">Nothing in the Budget or Premium column is required. Week 14 works perfectly at ₹0.</p>
+            </section>
+
+            <!-- ---------- Avoid + Red flags ---------- -->
+            <div class="warn-row">
+              <section class="warn warn--avoid" aria-labelledby="w14-avoid">
+                <h4 id="w14-avoid"><span aria-hidden="true">🚫</span> What to Avoid</h4>
+                <ul role="list">
+                  <li>Screens of any kind, including “baby-safe” videos.</li>
+                  <li>Propping baby into a sitting position they can’t hold alone.</li>
+                  <li>Over-stimulating toys — flashing lights plus loud sound at once.</li>
+                  <li>Comparing your baby’s week to another baby’s week.</li>
+                  <li>Waking a sleeping baby to complete a mission. Sleep wins.</li>
+                </ul>
+              </section>
+
+              <section class="warn warn--flags" aria-labelledby="w14-flags">
+                <h4 id="w14-flags"><span aria-hidden="true">⚠️</span> Red Flags</h4>
+                <p class="warn-lede">Mention these to your paediatrician — not a diagnosis, just a conversation starter.</p>
+                <ul role="list">
+                  <li>No eye contact or social smile at all by 14 weeks.</li>
+                  <li>Head still flops completely with no control when supported.</li>
+                  <li>Doesn’t startle or turn toward loud, sudden sounds.</li>
+                  <li>Hands stay tightly fisted all day, every day.</li>
+                  <li>Marked loss of a skill they clearly had last month.</li>
+                </ul>
+              </section>
+            </div>
+
+            <!-- ---------- Science + Values ---------- -->
+            <div class="insight-row">
+              <section class="science" aria-labelledby="w14-science">
+                <span class="evidence-badge"><span aria-hidden="true">🔬</span> Evidence-backed</span>
+                <h4 id="w14-science">Science Corner</h4>
+                <p>
+                  Around three to four months, infants shift from reflexive looking to <strong>voluntary visual
+                  tracking</strong>, and the “serve and return” rhythm of adult–infant babble becomes measurable.
+                  Studies of contingent responding — replying <em>right after</em> your baby vocalises, rather than
+                  talking over them — show richer babble and stronger later vocabulary.
+                </p>
+                <p class="science-take"><strong>Take-away:</strong> the pause is the intervention. Wait three seconds, then answer.</p>
+              </section>
+
+              <section class="values" aria-labelledby="w14-values">
+                <h4 id="w14-values"><span aria-hidden="true">🕊️</span> Values Corner</h4>
+                <blockquote class="quote-box">
+                  <p>“A baby learns what the world is like from how quickly the world answers.”</p>
+                  <footer>This week’s value: <strong>Responsiveness</strong></footer>
+                </blockquote>
+                <p class="values-note">Practise it with adults too — answer your partner the way you answer your baby.</p>
+              </section>
+            </div>
+
+            <!-- ---------- Scorecard ---------- -->
+            <section class="wc-block" aria-labelledby="w14-score">
+              <h4 class="block-title" id="w14-score"><span class="block-emoji" aria-hidden="true">📊</span> Parenting Scorecard</h4>
+              <p class="block-sub">Honest, not perfect. Tap the dots to rate how the week actually went — 0 to 5 per pillar.</p>
+              <div class="scorecard" id="scorecard">
+                <!-- Seven bars injected by script.js -->
+              </div>
+              <p class="score-summary" id="scoreSummary" aria-live="polite">Week average: —</p>
+            </section>
+
+            <!-- ---------- Memory page ---------- -->
+            <section class="wc-block" aria-labelledby="w14-memory">
+              <h4 class="block-title" id="w14-memory"><span class="block-emoji" aria-hidden="true">📔</span> Memory Page</h4>
+              <p class="block-sub">One minute now, priceless in ten years.</p>
+              <form class="memory-page" id="memoryPage" autocomplete="off" onsubmit="return false;">
+                <div class="mem-row">
+                  <div class="field">
+                    <label for="memWeight">Weight</label>
+                    <input id="memWeight" type="text" inputmode="decimal" placeholder="6.4 kg" data-persist="w14-mem-weight" />
+                  </div>
+                  <div class="field">
+                    <label for="memHeight">Height</label>
+                    <input id="memHeight" type="text" inputmode="decimal" placeholder="61 cm" data-persist="w14-mem-height" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="memSmile">Cutest smile of the week</label>
+                  <input id="memSmile" type="text" placeholder="When Papa came home and whistled…" data-persist="w14-mem-smile" />
+                </div>
+                <div class="field">
+                  <label for="memSound">New sound</label>
+                  <input id="memSound" type="text" placeholder="“aa-goo”, every morning" data-persist="w14-mem-sound" />
+                </div>
+                <div class="field">
+                  <label for="memNotes">Notes to remember</label>
+                  <textarea id="memNotes" rows="3" placeholder="What surprised you this week?" data-persist="w14-mem-notes"></textarea>
+                </div>
+                <p class="mem-hint" id="memHint">Saved for this browser session only — write it in the book to keep it forever.</p>
+              </form>
+            </section>
+
+            <!-- ---------- Detachable mission card ---------- -->
+            <section class="wc-block" aria-labelledby="w14-mini">
+              <h4 class="block-title" id="w14-mini"><span class="block-emoji" aria-hidden="true">✂️</span> Mission Card</h4>
+              <p class="block-sub">Tear here. Stick it on the fridge.</p>
+
+              <div class="detach-wrap">
+                <div class="perforation" aria-hidden="true"></div>
+                <div class="mission-card" id="missionCard">
+                  <div class="mc-top">
+                    <span class="mc-brand">Week by Week Parenting<sup>™</sup></span>
+                    <span class="mc-week">Week 14</span>
+                  </div>
+                  <h5 class="mc-title">Discovering Faces, Voices &amp; Movement</h5>
+                  <p class="mc-stage">Stage 1 · Birth–6 Months</p>
+                  <ul class="mc-checks" role="list">
+                    <li><label><input type="checkbox" data-persist="w14-mc-1" /><span class="cbx" aria-hidden="true"></span><span>Face-to-face talking, daily</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-mc-2" /><span class="cbx" aria-hidden="true"></span><span>Tummy time + mirror</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-mc-3" /><span class="cbx" aria-hidden="true"></span><span>Wait 3 seconds, then reply</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-mc-4" /><span class="cbx" aria-hidden="true"></span><span>Same song, same time</span></label></li>
+                    <li><label><input type="checkbox" data-persist="w14-mc-5" /><span class="cbx" aria-hidden="true"></span><span>One 3-minute family ritual</span></label></li>
+                  </ul>
+                  <div class="mc-foot">
+                    <span class="mc-qr" aria-hidden="true">
+                      <svg viewBox="0 0 40 40" width="40" height="40"><rect width="40" height="40" rx="6" fill="#fff"/><g fill="var(--charcoal)"><rect x="4" y="4" width="10" height="10" rx="2"/><rect x="26" y="4" width="10" height="10" rx="2"/><rect x="4" y="26" width="10" height="10" rx="2"/><rect x="18" y="4" width="4" height="4"/><rect x="18" y="12" width="4" height="4"/><rect x="26" y="18" width="4" height="4"/><rect x="34" y="18" width="2" height="4"/><rect x="18" y="20" width="4" height="4"/><rect x="18" y="28" width="4" height="4"/><rect x="26" y="26" width="4" height="4"/><rect x="32" y="32" width="4" height="4"/><rect x="26" y="34" width="4" height="2"/></g><g fill="#fff"><rect x="7" y="7" width="4" height="4"/><rect x="29" y="7" width="4" height="4"/><rect x="7" y="29" width="4" height="4"/></g></svg>
+                    </span>
+                    <p class="mc-foot-text">Scan for printables,<br />videos &amp; deeper notes.</p>
+                    <button class="btn btn-ghost btn-sm" type="button" id="printCardBtn">🖨️ Print card</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div><!-- /.wc-body -->
+        </article>
+      </div><!-- /#weekPanel -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6 · HANG THIS IN THE ROOM
+       ============================================================ -->
+  <section class="section hang" id="hang" aria-labelledby="hangTitle">
+    <div class="container hang-inner">
+      <div class="hang-copy reveal">
+        <p class="eyebrow">Printable</p>
+        <h2 id="hangTitle">Hang this in the room.</h2>
+        <p class="section-sub">
+          Parenting advice you can’t see is parenting advice you won’t do. Every week comes as
+          a nursery-ready wall card — soft colours, big type, readable at 3&nbsp;a.m. from across the room.
+        </p>
+        <ul class="tick-list tick-list--lg" role="list">
+          <li>A4 &amp; A5 printable PDFs, print-safe margins</li>
+          <li>Punch-hole and ribbon-loop guides included</li>
+          <li>Grandparent-friendly type sizes</li>
+          <li>Ink-light design — prints beautifully in mono</li>
+        </ul>
+        <a class="btn btn-primary" href="#companion">See what’s printable</a>
+      </div>
+
+      <!-- Nursery wall card preview -->
+      <div class="wall-wrap reveal">
+        <div class="wall-hook" aria-hidden="true"><span class="nail"></span><span class="string"></span></div>
+        <div class="wall-card">
+          <div class="wall-head">
+            <span class="wall-week">Week 14</span>
+            <span class="wall-stage">Birth–6 Months</span>
+          </div>
+          <p class="wall-title">Faces,<br />Voices &amp;<br />Movement</p>
+          <div class="wall-rule" aria-hidden="true"></div>
+          <ul class="wall-list" role="list">
+            <li><span aria-hidden="true">👀</span> Get close. Let them study your face.</li>
+            <li><span aria-hidden="true">⏳</span> Wait three seconds. Then answer.</li>
+            <li><span aria-hidden="true">💪</span> Tummy time, little and often.</li>
+            <li><span aria-hidden="true">🎵</span> Same song, same time, every day.</li>
+          </ul>
+          <p class="wall-quote">“A baby learns what the world is like from how quickly the world answers.”</p>
+          <p class="wall-brand">Week by Week Parenting<sup>™</sup> · by Aasthaxp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7 · WEBSITE COMPANION
+       ============================================================ -->
+  <section class="section section--white" id="companion" aria-labelledby="compTitle">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Paper meets pixels</p>
+        <h2 id="compTitle">The card is the door. The site is the room.</h2>
+        <p class="section-sub">Everything physical has a digital twin — free, forever, no login walls.</p>
+      </header>
+
+      <div class="companion-grid">
+        <article class="comp-card reveal" style="--i:0">
+          <span class="comp-icon" aria-hidden="true">📱</span>
+          <h3>QR on every card</h3>
+          <p>Scan the corner code to jump straight to that week online — demo videos, alternate activities, and a version you can read one-handed at 2&nbsp;a.m.</p>
+        </article>
+        <article class="comp-card reveal" style="--i:1">
+          <span class="comp-icon" aria-hidden="true">🖨️</span>
+          <h3>Printable PDFs</h3>
+          <p>Wall cards, fridge checklists, the scorecard and the memory page — all downloadable in A4 and A5, designed to use very little ink.</p>
+        </article>
+        <article class="comp-card reveal" style="--i:2">
+          <span class="comp-icon" aria-hidden="true">🔄</span>
+          <h3>Free updates</h3>
+          <p>When guidance evolves, the online week updates and the PDF is reissued. Your box from 2026 keeps getting better in 2029.</p>
+        </article>
+        <article class="comp-card reveal" style="--i:3">
+          <span class="comp-icon" aria-hidden="true">🌏</span>
+          <h3>Made for Indian homes</h3>
+          <p>Joint families, festival weeks, grandparent care and travel are built into the missions — not treated as exceptions.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8 · TESTIMONIALS
+       ============================================================ -->
+  <section class="section" id="stories" aria-labelledby="storiesTitle">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Parent stories</p>
+        <h2 id="storiesTitle">From real Indian homes.</h2>
+        <p class="section-sub">Names changed, feelings not.</p>
+      </header>
+
+      <div class="testimonial-grid">
+        <figure class="testimonial reveal" style="--i:0">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote><p>I used to open five parenting apps and close all of them feeling like a bad mother. Now there is one card on my fridge and five minutes I can actually do. That’s it. That’s the whole change.</p></blockquote>
+          <figcaption>
+            <span class="avatar" style="--av:var(--sage)">M</span>
+            <span><strong>Meghna Iyer</strong><small>Mother to Vihaan, 4 months · Bengaluru</small></span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial reveal" style="--i:1">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote><p>The Dad Mission section changed our house. For the first time I wasn’t “helping” my wife — I had my own job for the week. Bath time is mine now, and my daughter knows it.</p></blockquote>
+          <figcaption>
+            <span class="avatar" style="--av:var(--dusty-blue)">R</span>
+            <span><strong>Rohan Deshpande</strong><small>Father to Anaya, 7 months · Pune</small></span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial reveal" style="--i:2">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote><p>My mother-in-law was suspicious of “foreign parenting books”. Then she read the Values Corner and started reading the card aloud to the baby herself. Now she reminds <em>me</em> about tummy time.</p></blockquote>
+          <figcaption>
+            <span class="avatar" style="--av:var(--terracotta)">S</span>
+            <span><strong>Sneha Bansal</strong><small>Mother to Reyansh, 5 months · Jaipur</small></span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial reveal" style="--i:3">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote><p>The Free / Budget / Premium column is the most respectful thing I’ve seen in a parenting product. We did four months entirely on the Free column and our son is thriving.</p></blockquote>
+          <figcaption>
+            <span class="avatar" style="--av:var(--sage-deep)">A</span>
+            <span><strong>Arjun Nair</strong><small>Father to Kabir, 6 months · Kochi</small></span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial reveal" style="--i:4">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote><p>I gifted the box at a godh bharai and three people asked me where to buy it before the sweets were served. It looks like something you’d keep on a shelf, not hide in a cupboard.</p></blockquote>
+          <figcaption>
+            <span class="avatar" style="--av:var(--blue-deep)">P</span>
+            <span><strong>Priyanka Saxena</strong><small>Aunt &amp; serial gifter · Lucknow</small></span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial reveal" style="--i:5">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote><p>As a working mum with a 90-minute commute, “Minimum: 5 minutes” saved my sanity. Some weeks I only do that column. The book never once made me feel guilty about it.</p></blockquote>
+          <figcaption>
+            <span class="avatar" style="--av:var(--terracotta-deep)">F</span>
+            <span><strong>Fatima Sheikh</strong><small>Mother to Zoya, 3 months · Mumbai</small></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9 · FINAL CTA
+       ============================================================ -->
+  <section class="final-cta" aria-labelledby="ctaTitle">
+    <div class="container final-inner reveal">
+      <span class="cta-emoji" aria-hidden="true">🌱</span>
+      <h2 id="ctaTitle">Start with this week’s mission.</h2>
+      <p>Not the whole system. Not next Monday. Just this week — five minutes a day.</p>
+      <div class="hero-actions center">
+        <a class="btn btn-primary btn-lg" href="#weeks" data-week-jump="14">Open Week 14</a>
+        <a class="btn btn-ghost btn-lg btn-on-dark" href="#products">See the gift box</a>
+      </div>
+      <p class="cta-fine">Gift box ₹2,999 · Book, 26 mission cards, wall hanger &amp; lifetime web access</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     10 · FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="34" height="34" role="presentation">
+            <rect width="40" height="40" rx="12" fill="var(--sage)"/>
+            <circle cx="20" cy="16" r="6" fill="#fff" opacity=".95"/>
+            <path d="M8 33c0-6.6 5.4-11 12-11s12 4.4 12 11z" fill="#fff" opacity=".95"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Week by Week Parenting<sup>™</sup></span>
+          <span class="brand-by">by Aasthaxp</span>
+        </span>
+      </a>
+      <p class="footer-tag">Helping ordinary parents raise extraordinary humans—one week at a time.</p>
+    </div>
+
+    <nav class="footer-col" aria-labelledby="fnav1">
+      <h3 id="fnav1">Explore</h3>
+      <ul role="list">
+        <li><a href="#philosophy">About</a></li>
+        <li><a href="#products">Books</a></li>
+        <li><a href="#weeks">Mission Cards</a></li>
+        <li><a href="#companion">Website</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-labelledby="fnav2">
+      <h3 id="fnav2">Weeks</h3>
+      <ul role="list">
+        <li><a href="#weeks" data-week-jump="1">Week 1</a></li>
+        <li><a href="#weeks" data-week-jump="14">Week 14 · Featured</a></li>
+        <li><a href="#weeks" data-week-jump="26">Week 26</a></li>
+        <li><a href="#hang">Printables</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <ul role="list">
+        <li><a href="mailto:hello@weekbyweekparenting.com">hello@weekbyweekparenting.com</a></li>
+        <li><a href="#stories">Parent stories</a></li>
+        <li><a href="#hang">Stockists &amp; gifting</a></li>
+      </ul>
+      <p class="footer-note">Educational content only — never a substitute for your paediatrician.</p>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© <span id="year">2026</span> Week by Week Parenting<sup>™</sup> · by Aasthaxp. All rights reserved.</p>
+    <p class="made-with">Made with 🤍 for tired, brilliant parents.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
