@@ -64,6 +64,31 @@ class AtlassianSettings:
 
 
 @dataclass(frozen=True)
+class GitHubSettings:
+    """Works against github.com or a GitHub Enterprise Server install.
+
+    For Enterprise Server the API lives under /api/v3 on your own host, e.g.
+    COS_GITHUB_API=https://github.zeta.internal/api/v3
+    """
+
+    api: str
+    token: str
+    org: str
+
+    @classmethod
+    def load(cls) -> "GitHubSettings":
+        return cls(
+            api=(os.getenv("COS_GITHUB_API", "https://api.github.com").strip() or "https://api.github.com").rstrip("/"),
+            token=_require("COS_GITHUB_TOKEN"),
+            org=os.getenv("COS_GITHUB_ORG", "").strip(),
+        )
+
+    @classmethod
+    def available(cls) -> bool:
+        return bool(os.getenv("COS_GITHUB_TOKEN", "").strip())
+
+
+@dataclass(frozen=True)
 class GraphSettings:
     tenant_id: str
     client_id: str

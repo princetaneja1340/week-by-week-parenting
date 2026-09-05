@@ -14,9 +14,9 @@
         │                      │                      │
   persona.md            ┌──────┴──────┐          awaiting-review
   memory/*.md           │             │          markdown files
-                   Atlassian      MS Graph
-                   (P0, token)   (P1, device code)
-                   read-only     read-only
+            Atlassian    GitHub    MS Graph
+            (P0, token) (P0, PAT) (P1, device code)
+            read-only   read-only  read-only
 ```
 
 ## Why these choices
@@ -40,8 +40,19 @@ so `Agent.ask` mirrors the message history and restarts the runner on a paused t
 so a self-service app registration is sufficient. Tokens cache to `.cos_cache/msal.json`
 at mode 0600, git-ignored.
 
-**Basic auth for Atlassian.** An API token from `id.atlassian.com` needs no admin
-approval. This is the whole reason P0 ships before P1.
+**Basic auth for Atlassian, PAT for GitHub.** Both are self-service — no admin
+approval, no app registration. This is the whole reason P0 ships before P1.
+
+**GitHub env vars are namespaced `COS_GITHUB_*`.** A bare `GITHUB_TOKEN` is injected by
+GitHub Actions and much local tooling. Picking that up would authenticate the assistant
+as a CI runner — a failure indistinguishable from success, and exactly the kind that
+survives to production. Found during testing: the unprefixed name silently picked up an
+ambient token and reported a connector as healthy that had never been configured.
+
+**GitHub is modelled as three PM questions, not as a code host.** What am I blocking
+(`review_queue`), what code is in flight for this ticket (`for_jira_key`), and what
+actually shipped (`shipped`). A PM does not need a file tree; they need to know that
+PAY-1423 is marked Done in Jira while its PR is still in review.
 
 ## How "draft, never send" is enforced
 
@@ -60,6 +71,8 @@ Three independent layers, because a rule with one enforcement point is a rule wi
 | Failure | Behaviour |
 |---|---|
 | Atlassian not configured | Tool returns a message telling the model to say it can't see Jira — not an exception. Rule 4 depends on this. |
+| GitHub not configured | Same shape. (Tested with the env var unset.) |
+| GitHub token has write scopes | Reported once in the tool result; never used. Classic PATs expose scopes on every response header. |
 | Graph not signed in | Same shape: `cos login` is named in the tool result. |
 | Tool raises mid-turn | Caught in `_guard`, returned as `Tool failed: <type>: <msg>`. The model sees the real error and can tell you about it. |
 | Turn pauses (`pause_turn`) | Runner restarts with mirrored history, up to 5 times, then says so. |

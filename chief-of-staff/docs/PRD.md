@@ -7,7 +7,8 @@
 ## 1. Problem
 
 I lose the first ten minutes of every meeting reassembling context I already had.
-The context exists — it's scattered across Outlook, Teams, Jira, and Confluence — but
+The context exists — it's scattered across Outlook, Teams, Jira, Confluence, and
+GitHub — but
 retrieving it costs more than the meeting is worth, so I walk in cold and wing it.
 
 Every assistant I've tried is a **query box**: it answers when asked. The value isn't
@@ -71,11 +72,12 @@ Rules 4 and 5 are the ones that matter. 1–3 are table stakes.
 
 | # | Capability | Definition of done |
 |---|---|---|
-| **M1** | **Ask-anything over my corpus** | NL Q&A grounded in Jira, Confluence, Calendar, Mail. Every answer cites sources. |
+| **M1** | **Ask-anything over my corpus** | NL Q&A grounded in Jira, Confluence, GitHub, Calendar, Mail. Every answer cites sources. |
 | **M2** | **Morning brief** | 07:30 daily: today's calendar, Jira assigned/watched that moved, Confluence pages that changed, mail needing me. One screen. |
 | **M3** | **Pre-meeting brief** | T-15 min per meeting: attendees + what I know about them, the thread that caused this meeting, linked Jira/Confluence, my open commitments to those people. |
 | **M4** | **Commitment ledger** | Extracts "I'll do X by Y" from mail/meetings into `memory/commitments.md`. Nudges *before* they're due, not after. |
 | **M5** | **Draft queue** | Anything that would be sent lands in `drafts/` for approval. Enforced structurally — no connector has a send path. |
+| **M6** | **Ticket-to-code bridge** | For any Jira key, the PRs in flight for it and their review state. Flags where Jira status and GitHub disagree. |
 
 ### Nice-to-Have (Future)
 
@@ -108,13 +110,14 @@ same time — two of the four surfaces need approvals I don't control. Sequencin
 
 | Phase | Unlocks | Approval needed | Ships |
 |---|---|---|---|
-| **P0 — today** | M1 + M5 over Jira & Confluence. CLI surface. | **None** — Atlassian API tokens are self-service | Now |
+| **P0 — today** | M1 + M5 + M6 over Jira, Confluence & GitHub. CLI surface. | **None** — Atlassian and GitHub tokens are both self-service | Now |
 | **P1 — +1 app reg** | M2, M3, M4. Outlook + Calendar via MS Graph. | Entra ID app registration, delegated read scopes. Self-consent if the tenant allows it, else one IT ticket | Days |
 | **P2 — +IT** | Teams as the surface. | Azure Bot Service + Teams app manifest + admin consent | Weeks |
 
-**P0 is not a toy.** Jira + Confluence alone covers most of "what changed on my
-projects", and it proves the interaction model before any approval lands. If P1 never
-clears security review, P0 still runs every day.
+**P0 is not a toy, and GitHub makes it less of one.** Jira + Confluence + GitHub covers
+most of "what changed on my projects" *and* "is it actually done" — and it proves the
+interaction model before any approval lands. If P1 never clears security review, P0
+still runs every day.
 
 **Claude chat history** (from your data-access answer) has no API. It's export-only —
 drop the export into `memory/` and it's indexed like any other source. Flagged here so
@@ -126,16 +129,26 @@ Reach = interactions/week. Impact: 0.25 minimal → 3 massive. Effort in person-
 
 | Feature | Reach | Impact | Confidence | Effort | **RICE** |
 |---|---|---|---|---|---|
+| **M6** Ticket-to-code bridge | 8 | 2 | 85% | 0.4 | **34.0** |
 | **M1** Ask-anything | 15 | 1 | 90% | 0.5 | **27.0** |
 | **M3** Pre-meeting brief | 20 | 2 | 70% | 1.5 | **18.7** |
 | **M2** Morning brief | 5 | 2 | 90% | 0.5 | **18.0** |
 | **M4** Commitment ledger | 10 | 3 | 50% | 2.0 | **7.5** |
 
-**Read the table against your instinct.** Pre-meeting briefs are the emotional core of
-this thing — they're what makes it feel like a chief of staff. But **M1 scores highest
-because it's nearly free** once connectors exist, and it's the fastest way to find out
-whether retrieval quality is good enough to trust. Ship M1 first as the quality probe;
-M3 is the payoff.
+**M6 tops the table at 34.0**, which surprised me until I wrote out the reach. The
+question "Jira says Done — is it really?" comes up several times a week, currently costs
+a Slack round-trip to an engineer, and the answer is two API calls away once both
+connectors exist. High confidence (85%) because it is retrieval, not inference: the PR
+either exists and is merged, or it doesn't. Effort is 0.4 weeks because it is one method
+over connectors already built. **Cheap, frequent, and verifiable is the profile that
+wins RICE**, and it is why M6 shipped in the same pass as the connector rather than
+going on the backlog.
+
+**Read the rest of the table against your instinct.** Pre-meeting briefs are the
+emotional core of this thing — they're what makes it feel like a chief of staff. But
+M3 sits fourth, because **M1 and M6 are nearly free** once the connectors exist, and
+they're the fastest way to find out whether retrieval quality is good enough to trust
+at all. Ship M1 and M6 as the quality probe; M3 is the payoff.
 
 **M4 scores lowest and is the most dangerous.** Commitment extraction is an inference
 task with a silent failure mode — a missed commitment looks identical to no commitment.
@@ -149,6 +162,7 @@ extracted commitment is confirmed.
 | Entra app registration blocked by Zeta security | **High** — kills P1/P2 | P0 delivers standalone value with zero approvals |
 | Retrieval quality too low → briefs are noise | **High** — kills trust | Cite-or-abstain; measure Trust guardrail from day 1 |
 | Corporate data leaving the tenant via API calls | **High** — policy | Read-only scopes, local memory, no third-party stores. Clear with security *before* P1. |
+| GitHub token over-scoped, or reaching personal repos | Medium | Fine-grained read-only token recommended; `COS_GITHUB_ORG` scopes every query; write scopes on a classic PAT are reported. Env var namespaced so an ambient CI token is never picked up. |
 | I stop reading the briefs (habit fails) | Medium | Noise guardrail ≤20%; kill any brief type dismissed 3 weeks running |
 | Commitment extraction misses things silently | Medium | Suggest-only mode; never claim the ledger is complete |
 
@@ -160,3 +174,8 @@ extracted commitment is confirmed.
    answer *before* Outlook content is in scope, not after.
 3. Which is the real hero — morning brief or pre-meeting brief? Run both for two weeks
    and let the North Star decide, rather than arguing about it now.
+4. Is Zeta on github.com under an org, or GitHub Enterprise Server? Both are supported
+   via `COS_GITHUB_API`, but Enterprise Server may sit behind a VPN the assistant needs
+   network access to.
+5. Does Zeta's GitHub org enforce SSO on personal access tokens? If so the token needs
+   an explicit SSO authorisation step — self-service, but it fails confusingly without it.

@@ -10,7 +10,7 @@ from rich.markdown import Markdown
 from rich.table import Table
 
 from . import briefs, drafts
-from .config import AtlassianSettings, GraphSettings, Settings
+from .config import AtlassianSettings, GitHubSettings, GraphSettings, Settings
 
 console = Console()
 
@@ -105,6 +105,22 @@ def cmd_status(_: argparse.Namespace) -> int:
         "Jira + Confluence",
         "[green]configured[/green]" if atlassian_ok else "[yellow]not configured[/yellow]",
         "P0 — ask-anything",
+    )
+
+    github_ok = GitHubSettings.available()
+    github_who = ""
+    if github_ok:
+        try:
+            from .connectors.github import GitHub
+
+            gh = GitHub()
+            github_who = f" as {gh.me()['login']}"
+        except Exception:
+            github_who = " [red](token rejected)[/red]"
+    table.add_row(
+        "GitHub",
+        f"[green]configured[/green]{github_who}" if github_ok else "[yellow]not configured[/yellow]",
+        "P0 — review queue, code in flight",
     )
 
     graph_ok = GraphSettings.available()

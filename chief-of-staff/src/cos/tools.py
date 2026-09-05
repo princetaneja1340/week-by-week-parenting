@@ -16,12 +16,16 @@ from typing import Any
 from anthropic import beta_tool
 
 from . import drafts, memory
-from .config import AtlassianSettings, GraphSettings
+from .config import AtlassianSettings, GitHubSettings, GraphSettings
 
 _UNAVAILABLE_ATLASSIAN = (
     "Atlassian is not configured (ATLASSIAN_SITE / ATLASSIAN_EMAIL / "
     "ATLASSIAN_API_TOKEN missing from .env). Tell Prince you cannot see Jira or "
     "Confluence right now — do not guess at their contents."
+)
+_UNAVAILABLE_GITHUB = (
+    "GitHub is not configured (COS_GITHUB_TOKEN missing from .env). Tell Prince you "
+    "cannot see pull requests right now — do not guess at what is in flight."
 )
 _UNAVAILABLE_GRAPH = (
     "Microsoft 365 is not connected (MS_CLIENT_ID missing, or not signed in — "
@@ -31,6 +35,7 @@ _UNAVAILABLE_GRAPH = (
 
 # Connectors are built once per process and reused across tool calls.
 _atlassian: Any = None
+_github: Any = None
 _graph: Any = None
 
 
@@ -41,6 +46,15 @@ def _get_atlassian() -> Any:
 
         _atlassian = Atlassian()
     return _atlassian
+
+
+def _get_github() -> Any:
+    global _github
+    if _github is None:
+        from .connectors.github import GitHub
+
+        _github = GitHub()
+    return _github
 
 
 def _get_graph() -> Any:
@@ -175,6 +189,98 @@ def teams_chats(limit: int = 15) -> str:
     )
 
 
+# -------------------------------------------------------------- GitHub
+
+
+@beta_tool
+def github_review_queue(limit: int = 20) -> str:
+    """Open pull requests waiting on Prince's review — what he is blocking.
+
+    Args:
+        limit: Maximum PRs to return (default 20, max 50).
+    """
+    return _guard(
+        GitHubSettings.available(),
+        _UNAVAILABLE_GITHUB,
+        lambda: _get_github().review_queue(limit),
+    )
+
+
+@beta_tool
+def github_my_prs(limit: int = 20) -> str:
+    """Prince's own open pull requests, oldest first so stale ones surface.
+
+    Args:
+        limit: Maximum PRs to return (default 20, max 50).
+    """
+    return _guard(
+        GitHubSettings.available(),
+        _UNAVAILABLE_GITHUB,
+        lambda: _get_github().my_pull_requests(limit),
+    )
+
+
+@beta_tool
+def github_for_jira(key: str, limit: int = 20) -> str:
+    """Find the pull requests referencing a Jira ticket — what code is in flight for it.
+
+    Args:
+        key: A Jira issue key, e.g. 'PAY-1423'.
+        limit: Maximum PRs to return (default 20, max 50).
+    """
+    return _guard(
+        GitHubSettings.available(),
+        _UNAVAILABLE_GITHUB,
+        lambda: _get_github().for_jira_key(key, limit),
+    )
+
+
+@beta_tool
+def github_search(query: str, limit: int = 20) -> str:
+    """Search GitHub issues and pull requests. Scoped to the configured org.
+
+    Args:
+        query: GitHub search syntax, e.g. 'is:pr is:open label:launch-blocker'.
+        limit: Maximum results to return (default 20, max 50).
+    """
+    return _guard(
+        GitHubSettings.available(),
+        _UNAVAILABLE_GITHUB,
+        lambda: _get_github().search(query, limit),
+    )
+
+
+@beta_tool
+def github_pull_request(repo: str, number: int) -> str:
+    """One pull request in full, with its review state — for 'why is this stuck?'.
+
+    Args:
+        repo: Repository as 'owner/name', e.g. 'zeta/payments'.
+        number: The pull request number.
+    """
+    return _guard(
+        GitHubSettings.available(),
+        _UNAVAILABLE_GITHUB,
+        lambda: _get_github().pull_request(repo, number),
+    )
+
+
+@beta_tool
+def github_shipped(repo: str, days: int = 7, limit: int = 20) -> str:
+    """What actually merged in a repo recently — the honest answer to 'did it ship?'.
+
+    Args:
+        repo: Repository as 'owner/name', e.g. 'zeta/payments'.
+        days: How far back to look (default 7).
+        limit: Maximum PRs to return (default 20, max 50).
+    """
+    return _guard(
+        GitHubSettings.available(),
+        _UNAVAILABLE_GITHUB,
+        lambda: _get_github().shipped(repo, days, limit),
+    )
+
+
 # ------------------------------------------------------ drafts & memory
 
 
@@ -234,6 +340,12 @@ ALL = [
     calendar,
     mail,
     teams_chats,
+    github_review_queue,
+    github_my_prs,
+    github_for_jira,
+    github_search,
+    github_pull_request,
+    github_shipped,
     save_draft,
     log_mistake,
     remember,
