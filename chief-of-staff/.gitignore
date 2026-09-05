@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.cos_cache/
+drafts/*.md
+!drafts/.gitkeep
+memory/*.local.md
+
+# chief-of-staff
+chief-of-staff/.venv/
+chief-of-staff/.cos_cache/
+*.egg-info/
